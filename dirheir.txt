@@ -1,0 +1,23 @@
+
+[adhoc@localhost home]$ cd
+[adhoc@localhost ~]$ cd Desktop
+[adhoc@localhost Desktop]$ mkdir -p a/b{d,e}/c{f,g}
+[adhoc@localhost Desktop]$ mkdir -p a/{b/d,e}
+[adhoc@localhost Desktop]$ mkdir -p a/{b/{d,e}
+
+#this we have created a commad in which a dir will have b and b will have d and e 
+now we will create a whole structure
+
+
+[adhoc@localhost Desktop]$ mkdir -p a/{b/{d,e},c/{f,g}}
+[adhoc@localhost Desktop]$ mkdir -p a/{b/{d/{i,l/{m}}},e},c/{f,g}}
+
+[adhoc@localhost Desktop]$ mkdir -p a/{b/{d/{i,l/{m}}},e/h/{k}},c/{f,g}}
+
+in this we have created a dir within many directories 
+ 
+a in b,c
+b in d,e
+cin f,g
+fin h
+d in i and j as exmaple
