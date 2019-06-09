@@ -1,0 +1,108 @@
+
+
+lsblk
+fdisk -l to show harddisk we have
+
+Disk /dev/xvda: 10.7 GB, 10737418240 bytes, 20971520 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: gpt
+
+
+
+--->>>[root@ip-172-31-39-224 ~]#
+---->>>[root@ip-172-31-39-224 ~]# fdisk -l /dev/xvdf
+  
+#smallest unit of hdd is sector 1sector=512 byte
+#fdisk   /dev/xvdf  to get into harddisk  fdisk ---- /dev/xvdf
+
+----->>>>print
+----->>>>new or n to know information about primary ,extended hddd statuss
+------>>>press enter by deafult 3 timessr
+
+
+
+
+
+
+
+
+
+#HOST WEBSITE ANYWHERE ON THE SERVER
+
+[root@ip-172-31-39-224 ~]# cd /var/www/html
+[root@ip-172-31-39-224 html]# ls
+[root@ip-172-31-39-224 html]# echo "<h1> hello w </h1> "  >a.html
+
+[root@ip-172-31-39-224 html]# ls
+a.html                       #page formed
+[root@ip-172-31-39-224 html]# cat a.html
+<h1> hello w </h1>
+[root@ip-172-31-39-224 html]#
+
+then go to aws and in security group add inbound edit add http and anywhere which will host your website anywhere on server
+
+
+
+______>>>give size of partition like 300m
+------>>>p                                                               -->>#to see new hdd partitioned
+------>>>then give rest space to extended by press 4 enters s
+#never delete or format extented partition
+
+---->>press wq for saving the partition and q to quit without saving
+----->>fdisk -l /dev/xvdf                                               #list the partion we have mades 
+
+
+note:format does not delte data but creating the enviorment
+# pendrive gives us formateed pendrive in FAT FORMAT WHICH IS APPLICABLE BY ALL OPERATING SYSTEM
+
+# TO FORMAT THE PENDRIVE U
+
+------------------------------------------------------------------------------------------------
+    Device Boot      Start         End      Blocks   Id  System
+/dev/xvdf1            2048      616447      307200   83  Linux
+----->>[root@ip-172-31-39-224 ~]# mkfs.xfs  /dev/xvdf1
+---------------------------------------------------------------------------------------
+mkfs. tab tab
+------------------------------------------------------------------------
+
+
+
+#-------------------------------MOUNT------------------------------------------
+#create a folder and link partition to it.
+
+[root@ip-172-31-39-224 ~]# mkdir  /mnt/mypar
+
+ #----for mounting ----------------------------
+[root@ip-172-31-39-224 ~]# mount  /dev/xvdf1  /mnt/mypart *1>
+
+#--------type of format----------------- 
+--->[root@ip-172-31-39-224 ~]# df -hT
+
+#we and use mnt and media for it but icon will show while we use media
+
+
+
+------->[root@ip-172-31-39-224 mypart]# mkdir   a b c d---
+----->[root@ip-172-31-39-224 mypart]# ls
+a  b  c  d
+----->[root@ip-172-31-39-224 mypart]#
+
+# for cheacking a the mount is done or not by making the directoty in (/mnt/mypar) folder by mkdir-----------------------------
+
+[root@ip-172-31-39-224 ~]# cd  /mnt/mypar
+[root@ip-172-31-39-224 mypar]# mkdir a v dd
+[root@ip-172-31-39-224 mypar]# ls
+a  dd  v
+
+-----------MOUTING PREMANTALY------------
+	--->vi /etc/fstab
+#after we go inside vi we will paste the *1> command inside the vi and save and exit(  /dev/xvdf1  /mnt/mypart)
+
+---->mount -a will cross cheack what we have done in mounting process
+---->reboot
+(#this wil cause connection to get closed by remote server)
+ -->>close putyy and restart and login again to root
+ -->>df -hT
+
