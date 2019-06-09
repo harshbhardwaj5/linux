@@ -1,0 +1,15 @@
+#HOST WEBSITE ANYWHERE ON THE SERVER
+
+[root@ip-172-31-39-224 ~]# cd /var/www/html
+[root@ip-172-31-39-224 html]# ls
+[root@ip-172-31-39-224 html]# echo "<h1> hello w </h1> "  >a.html
+
+[root@ip-172-31-39-224 html]# ls
+a.html                       #page formed
+[root@ip-172-31-39-224 html]# cat a.html
+<h1> hello w </h1>
+[root@ip-172-31-39-224 html]#
+
+then go to aws and in security group add inbound edit add http and anywhere which will host your website anywhere on server
+
+
